@@ -134,14 +134,14 @@ const expertise = [
 
 export default function ExpertiseSection() {
   return (
-    <section className="py-32 lg:py-40 bg-gray-50">
+    <section className="py-32 lg:py-40 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20 lg:mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-6">
             Our Expertise
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
             We leverage cutting-edge technologies and proven methodologies to deliver 
             solutions that exceed expectations.
           </p>
@@ -151,15 +151,15 @@ export default function ExpertiseSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-20 lg:mb-24">
           {expertise.map((item, index) => (
             <div key={index} className="group">
-              <div className="relative bg-white rounded-2xl p-6 h-full hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="relative bg-neutral-900 rounded-2xl p-6 h-full hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-800">
                 {/* Gradient background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
                 
                 <div className="relative z-10">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  <h3 className="text-lg font-bold text-neutral-100 mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-neutral-400 text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -173,23 +173,23 @@ export default function ExpertiseSection() {
 
         {/* Technologies */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-12">
+          <h3 className="text-2xl font-bold text-neutral-100 mb-12">
             Technologies We Use
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
             {technologies.map((tech, index) => (
               <div
                 key={index}
-                className="px-6 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-900 hover:shadow-lg transition-all duration-200 group flex items-center space-x-3"
+                className="px-6 py-3 bg-neutral-900 rounded-full border border-neutral-800 hover:border-neutral-500 hover:shadow-lg transition-all duration-200 group flex items-center space-x-3"
               >
-                <div className="text-gray-600 group-hover:text-gray-900 transition-colors duration-200">
+                <div className="text-neutral-400 group-hover:text-neutral-100 transition-colors duration-200">
                   {tech.icon}
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="text-gray-700 font-medium group-hover:text-gray-900">
+                  <span className="text-neutral-200 font-medium group-hover:text-neutral-100">
                     {tech.name}
                   </span>
-                  <span className="text-gray-400 text-sm group-hover:text-gray-600">
+                  <span className="text-neutral-500 text-sm group-hover:text-neutral-400">
                     {tech.category}
                   </span>
                 </div>

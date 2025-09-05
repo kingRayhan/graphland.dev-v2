@@ -1,6 +1,14 @@
 import { Project } from "@/common/graphql-models/graphql";
 
-const mockProjects: Project[] = [
+type UIProject = Project & {
+  client?: string;
+  technologies?: string[];
+  completionDate?: string;
+  category?: string;
+  featured?: boolean;
+};
+
+const mockProjects: UIProject[] = [
   {
     _id: "1",
     _type: "project",
@@ -101,14 +109,14 @@ const mockProjects: Project[] = [
 
 export default function ProjectsSection() {
   return (
-    <section className="py-32 lg:py-40 bg-white">
+    <section className="py-32 lg:py-40 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20 lg:mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-6">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
             Explore some of our recent work that demonstrates our commitment to delivering 
             exceptional digital solutions across various industries.
           </p>
@@ -123,14 +131,14 @@ export default function ProjectsSection() {
                 index === 0 ? 'md:col-span-2 lg:col-span-2' : ''
               }`}
             >
-              <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="relative bg-neutral-900 border border-neutral-800 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:bg-neutral-800 hover:shadow-2xl">
                 {/* Project Image */}
                 <div className={`relative overflow-hidden ${
                   index === 0 ? 'aspect-[2/1]' : 'aspect-[4/3]'
                 }`}>
-                  <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <div className="text-gray-500 text-center">
-                      <div className={`mx-auto mb-4 bg-gray-300 rounded-2xl flex items-center justify-center ${
+                  <div className="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-700 flex items-center justify-center">
+                    <div className="text-neutral-300 text-center">
+                      <div className={`mx-auto mb-4 bg-neutral-600 rounded-2xl flex items-center justify-center ${
                         index === 0 ? 'w-24 h-24' : 'w-16 h-16'
                       }`}>
                         <svg className={`${index === 0 ? 'w-12 h-12' : 'w-8 h-8'}`} fill="currentColor" viewBox="0 0 20 20">
@@ -152,12 +160,12 @@ export default function ProjectsSection() {
                   </div>
                   
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gray-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-neutral-950/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex space-x-3">
-                      <button className="px-6 py-3 bg-white text-gray-900 rounded-full font-medium hover:bg-gray-100 transition-colors duration-200">
+                      <button className="px-6 py-3 bg-white text-neutral-900 rounded-full font-medium hover:bg-neutral-200 transition-colors duration-200">
                         View Case Study
                       </button>
-                      <button className="px-6 py-3 bg-white/20 text-white rounded-full font-medium hover:bg-white/30 transition-colors duration-200">
+                      <button className="px-6 py-3 border border-neutral-400/40 text-white rounded-full font-medium hover:bg-white/10 transition-colors duration-200">
                         Live Preview
                       </button>
                     </div>
@@ -165,7 +173,7 @@ export default function ProjectsSection() {
 
                   {/* Featured badge */}
                   {project.featured && (
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-gray-900 text-white text-xs font-medium rounded-full">
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-neutral-900 text-white text-xs font-medium rounded-full border border-neutral-700">
                       Featured
                     </div>
                   )}
@@ -174,36 +182,36 @@ export default function ProjectsSection() {
                 {/* Project Info */}
                 <div className="p-6 lg:p-8">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">
-                      {project.category}
+                    <span className="inline-block px-3 py-1 bg-neutral-800 text-neutral-300 text-xs font-medium rounded-full">
+                      {project.category ?? 'Project'}
                     </span>
-                    <span className="text-gray-500 text-sm">
-                      {new Date(project.completionDate).getFullYear()}
+                    <span className="text-neutral-400 text-sm">
+                      {project.completionDate ? new Date(project.completionDate).getFullYear() : ''}
                     </span>
                   </div>
                   
-                  <h3 className={`font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors duration-300 ${
+                  <h3 className={`font-bold text-neutral-100 mb-2 group-hover:text-neutral-300 transition-colors duration-300 ${
                     index === 0 ? 'text-2xl' : 'text-xl'
                   }`}>
                     {project.title}
                   </h3>
                   
-                  <p className="text-gray-600 text-sm mb-4">
-                    Client: <span className="font-medium">{project.client}</span>
+                  <p className="text-neutral-400 text-sm mb-4">
+                    Client: <span className="font-medium text-neutral-200">{project.client ?? '—'}</span>
                   </p>
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies?.slice(0, 3).map((tech, techIndex) => (
+                    {(project.technologies ?? []).slice(0, 3).map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded-md"
+                        className="px-2 py-1 bg-neutral-800 text-neutral-300 text-xs rounded-md"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies && project.technologies.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-50 text-gray-500 text-xs rounded-md">
+                      <span className="px-2 py-1 bg-neutral-800 text-neutral-400 text-xs rounded-md">
                         +{project.technologies.length - 3}
                       </span>
                     )}
@@ -211,8 +219,8 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Hover indicator */}
-                <div className="absolute bottom-4 right-4 w-8 h-8 bg-gray-100 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                  <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute bottom-4 right-4 w-8 h-8 bg-neutral-800 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center border border-neutral-700">
+                  <svg className="w-4 h-4 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -223,18 +231,18 @@ export default function ProjectsSection() {
 
         {/* CTA */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <h3 className="text-2xl font-bold text-neutral-100 mb-4">
             See More of Our Work
           </h3>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-neutral-400 mb-8 max-w-2xl mx-auto">
             Explore our complete portfolio to see how we&apos;ve helped businesses 
             across different industries achieve their digital transformation goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gray-900 text-white rounded-full font-medium text-lg hover:bg-gray-800 transition-all duration-200 hover:shadow-lg hover:scale-105">
+            <button className="px-8 py-4 bg-white text-neutral-900 rounded-full font-medium text-lg hover:bg-neutral-200 transition-all duration-200 hover:shadow-lg hover:scale-105">
               View All Projects
             </button>
-            <button className="px-8 py-4 border border-gray-300 text-gray-900 rounded-full font-medium text-lg hover:border-gray-900 hover:bg-gray-50 transition-all duration-200">
+            <button className="px-8 py-4 border border-neutral-700 text-neutral-100 rounded-full font-medium text-lg hover:border-neutral-400 hover:bg-neutral-900 transition-all duration-200">
               Download Portfolio
             </button>
           </div>
