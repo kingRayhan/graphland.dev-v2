@@ -1,34 +1,26 @@
-const clients = [
-  { name: 'TechCorp', logo: 'TC' },
-  { name: 'StartupXYZ', logo: 'SX' },
-  { name: 'Enterprise Ltd', logo: 'EL' },
-  { name: 'Innovation Hub', logo: 'IH' },
-  { name: 'Digital Agency', logo: 'DA' },
-  { name: 'Future Systems', logo: 'FS' },
-  { name: 'Cloud Solutions', logo: 'CS' },
-  { name: 'Mobile First', logo: 'MF' }
-]
-
 const testimonials = [
   {
-    quote: "Graphland delivered an exceptional web application that transformed our business operations. Their attention to detail and technical expertise is outstanding.",
+    quote:
+      "Graphland delivered an exceptional web application that transformed our business operations. Their attention to detail and technical expertise is outstanding.",
     author: "Sarah Johnson",
     title: "CTO, TechCorp",
-    rating: 5
+    rating: 5,
   },
   {
-    quote: "The mobile app they built for us exceeded all expectations. The user experience is seamless and our customers love it.",
+    quote:
+      "The mobile app they built for us exceeded all expectations. The user experience is seamless and our customers love it.",
     author: "Michael Chen",
-    title: "Founder, StartupXYZ", 
-    rating: 5
+    title: "Founder, StartupXYZ",
+    rating: 5,
   },
   {
-    quote: "Professional, reliable, and innovative. Graphland is our go-to partner for all digital projects.",
+    quote:
+      "Professional, reliable, and innovative. Graphland is our go-to partner for all digital projects.",
     author: "Emily Davis",
     title: "Director, Enterprise Ltd",
-    rating: 5
-  }
-]
+    rating: 5,
+  },
+];
 
 export default function ClientsSection() {
   return (
@@ -40,28 +32,29 @@ export default function ClientsSection() {
             Trusted by Leading Companies
           </h2>
           <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
-            We&apos;ve had the privilege of working with amazing clients who trust us 
-            to bring their digital visions to life.
+            We&apos;ve had the privilege of working with amazing clients who
+            trust us to bring their digital visions to life.
           </p>
         </div>
 
         {/* Client Logos */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-10 lg:gap-12 mb-24 lg:mb-28">
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-10 lg:gap-12 mb-24 lg:mb-28">
           {clients.map((client, index) => (
             <div key={index} className="group flex items-center justify-center">
               <div className="w-16 h-16 bg-neutral-800 rounded-2xl flex items-center justify-center group-hover:bg-neutral-700 group-hover:text-white transition-all duration-300 group-hover:scale-110">
-                <span className="font-bold text-lg">
-                  {client.logo}
-                </span>
+                <span className="font-bold text-lg">{client.logo}</span>
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Testimonials */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-neutral-900 rounded-3xl p-8 border border-neutral-800">
+            <div
+              key={index}
+              className="bg-neutral-900 rounded-3xl p-8 border border-neutral-800"
+            >
               {/* Rating Stars */}
               <div className="flex space-x-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -84,7 +77,10 @@ export default function ClientsSection() {
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-neutral-700 rounded-full flex items-center justify-center">
                   <span className="text-neutral-300 font-medium text-sm">
-                    {testimonial.author.split(' ').map(n => n[0]).join('')}
+                    {testimonial.author
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </span>
                 </div>
                 <div>
@@ -106,7 +102,8 @@ export default function ClientsSection() {
             Join our growing list of satisfied clients
           </h3>
           <p className="text-neutral-400 mb-8">
-            Ready to start your project? Let&apos;s discuss how we can help you achieve your goals.
+            Ready to start your project? Let&apos;s discuss how we can help you
+            achieve your goals.
           </p>
           <button className="px-8 py-4 bg-white text-neutral-900 rounded-full font-medium text-lg hover:bg-neutral-200 transition-all duration-200 hover:shadow-lg hover:scale-105">
             Start Your Project
@@ -114,5 +111,5 @@ export default function ClientsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

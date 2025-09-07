@@ -1,18 +1,19 @@
-import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
-import ExpertiseSection from "@/components/ExpertiseSection";
-import ProductsShowcase from "@/components/ProductsShowcase";
-import ProjectsSection from "@/components/ProjectsSection";
 import ClientsSection from "@/components/ClientsSection";
+import CompanyLogosSection from "@/components/CompanyLogosSection";
 import ContactSection from "@/components/ContactSection";
+import ExpertiseSection from "@/components/ExpertiseSection";
+import HeroSection from "@/components/HeroSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import ServicesSection from "@/components/ServicesSection";
 
 export default function Home() {
   return (
     <div>
       <HeroSection />
+      <CompanyLogosSection />
       <ServicesSection />
       <ExpertiseSection />
-      <ProductsShowcase />
+      {/* <ProductsShowcase /> */}
       <ProjectsSection />
       <ClientsSection />
       <ContactSection />
