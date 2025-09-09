@@ -61,17 +61,19 @@ export default function ServicesSection() {
           {services.map((service) => (
             <SpotlightCard
               key={service.id}
-              className="group flex flex-col gap-3"
+              className="group flex flex-col gap-3 justify-between"
               spotlightColor="rgba(223, 249, 74, 0.6)"
             >
-              {/* Icon */}
-              {service.icon}
+              <div className="flex flex-col gap-3">
+                {/* Icon */}
+                {service.icon}
 
-              {/* Content */}
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-              <p className="text-muted mb-8 leading-relaxed">
-                {service.description}
-              </p>
+                {/* Content */}
+                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                <p className="text-muted mb-8 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
 
               {/* CTA Button */}
               <Link
