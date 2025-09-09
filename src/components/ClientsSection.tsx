@@ -1,3 +1,7 @@
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { ArrowUpRightIcon } from "lucide-react";
+
 const testimonials = [
   {
     quote:
@@ -105,9 +109,12 @@ export default function ClientsSection() {
             Ready to start your project? Let&apos;s discuss how we can help you
             achieve your goals.
           </p>
-          <button className="px-8 py-4 bg-white text-neutral-900 rounded-full font-medium text-lg hover:bg-neutral-200 transition-all duration-200 hover:shadow-lg hover:scale-105">
-            Start Your Project
-          </button>
+          <Button asChild>
+            <Link href={"/contact"} className="text-black">
+              Start Your Project
+              <ArrowUpRightIcon className="w-4 h-4 ml-1" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

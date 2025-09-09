@@ -15,7 +15,8 @@ Service Page -> web
 
 Contact Page
 -------------------
-- Inspiration: https://www.nyntax.com/contact
+- ✅ UI
+- Need api integration for form submission
 
 About Page
 -------------------

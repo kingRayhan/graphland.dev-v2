@@ -1,10 +1,15 @@
 "use client";
 
-import { CalendarRangeIcon } from "lucide-react";
+import {
+  ArrowUpFromDot,
+  CalendarRangeIcon,
+  MoveUpRightIcon,
+} from "lucide-react";
 import { Highlighter } from "./magicui/highlighter";
 import { BackgroundRippleEffect } from "./ui/background-ripple-effect";
 import { Button } from "./ui/button";
 import ScheduleButton from "./ScheduleButton";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -33,6 +38,12 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
               <ScheduleButton />
+              <Button asChild variant={"secondary"}>
+                <Link href={"/contact"} className="text-black">
+                  <MoveUpRightIcon />
+                  Let&apos;s Talk
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
