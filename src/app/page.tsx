@@ -3,7 +3,6 @@ import CompanyLogosSection from "@/components/CompanyLogosSection";
 import ContactSection from "@/components/ContactSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import HeroSection from "@/components/HeroSection";
-import ProjectsSection from "@/components/ProjectsSection";
 import ServicesSection from "@/components/ServicesSection";
 
 export default function Home() {
@@ -14,7 +13,7 @@ export default function Home() {
       <ServicesSection />
       <ExpertiseSection />
       {/* <ProductsShowcase /> */}
-      <ProjectsSection />
+      {/* <ProjectsSection /> */}
       <ClientsSection />
       <ContactSection />
     </div>

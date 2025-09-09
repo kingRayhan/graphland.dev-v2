@@ -1,18 +1,21 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { useState } from 'react'
+import Link from "next/link";
+import { useState } from "react";
+import { Button } from "./ui/button";
+import { MoveUpRightIcon } from "lucide-react";
 
 export default function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'Products', href: '/products' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'About', href: '/about' },
-  ]
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    // { name: "Products", href: "/products" },
+    // { name: "Projects", href: "/projects" },
+    { name: "About", href: "/about" },
+    // { name: "About", href: "/about" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800 z-50">
@@ -23,7 +26,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -33,6 +36,13 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
+
+            <Button asChild>
+              <Link href={"/contact"} className="text-black!">
+                <MoveUpRightIcon />
+                <span>Let&apos;s Talk</span>
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -42,9 +52,21 @@ export default function Navigation() {
             aria-label="Toggle menu"
           >
             <div className="space-y-1">
-              <div className={`w-5 h-0.5 bg-neutral-200 transition-all duration-200 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-              <div className={`w-5 h-0.5 bg-neutral-200 transition-all duration-200 ${isMenuOpen ? 'opacity-0' : ''}`} />
-              <div className={`w-5 h-0.5 bg-neutral-200 transition-all duration-200 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+              <div
+                className={`w-5 h-0.5 bg-neutral-200 transition-all duration-200 ${
+                  isMenuOpen ? "rotate-45 translate-y-1.5" : ""
+                }`}
+              />
+              <div
+                className={`w-5 h-0.5 bg-neutral-200 transition-all duration-200 ${
+                  isMenuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <div
+                className={`w-5 h-0.5 bg-neutral-200 transition-all duration-200 ${
+                  isMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
+                }`}
+              />
             </div>
           </button>
         </div>
@@ -68,5 +90,5 @@ export default function Navigation() {
         )}
       </div>
     </nav>
-  )
+  );
 }

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 export const metadata: Metadata = {
   title: "Graphland - Custom Solutions",
@@ -22,10 +23,11 @@ export default function RootLayout({
         <meta name="color-scheme" content="dark" />
         <meta name="theme-color" content="#0a0a0a" />
       </head>
-      <body className="antialiased">
+      <body className="antialiased cursor-none!">
         <Navigation />
         <main className="pt-16">{children}</main>
         <Footer />
+        <SmoothCursor />
       </body>
     </html>
   );
