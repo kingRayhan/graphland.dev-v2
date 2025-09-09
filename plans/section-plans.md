@@ -8,6 +8,8 @@ Home page
 - 😭 Blog Grid Section
 - 🙂‍↔️ Testimonials [API integration]
 
+// https://frisk-nextapp.vercel.app/service
+
 Service Page -> web
 -------------------
 - ✅ Hero

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Highlighter } from "./magicui/highlighter";
 
 const companyLogos = [
   {
@@ -46,13 +47,16 @@ export default function CompanyLogosSection() {
           {/* Left Content */}
           <div>
             <div className="mb-6">
-              <span className="text-purple-400 text-sm font-medium uppercase tracking-wide">
+              <span className="text-primary font-bold text-sm uppercase tracking-wide">
                 Our Clients
               </span>
             </div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
-              Trusted by
+              <Highlighter action="underline" color="var(--primary)">
+                Trusted
+              </Highlighter>{" "}
+              by
               <br />
               the industry&apos;s
               <br />

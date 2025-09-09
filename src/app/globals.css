@@ -9,7 +9,7 @@
   color-scheme: dark;
   --radius: 0.625rem;
   --background: oklch(0% 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(96.115% 0.00011 271.152);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -18,7 +18,7 @@
   --primary-foreground: oklch(26.968% 0.00147 16.1);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
+  --muted: oklch(62.426% 0.00118 13.868);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);

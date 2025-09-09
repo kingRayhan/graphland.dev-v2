@@ -1,88 +1,92 @@
+import {
+  FigmaIcon,
+  GlobeIcon,
+  LayoutPanelTopIcon,
+  MoveUpRightIcon,
+  TabletSmartphoneIcon,
+} from "lucide-react";
+import SpotlightCard from "./ui/SpotlightCard";
+import Link from "next/link";
+
 interface Service {
-  id: string
-  title: string
-  description: string
-  icon: string
-  features: string[]
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
 }
 
 const services: Service[] = [
   {
-    id: '1',
-    title: 'Website Development',
-    description: 'Custom websites and web applications built with modern technologies. From simple landing pages to complex enterprise solutions.',
-    icon: '🌐',
-    features: ['Responsive Design', 'SEO Optimized', 'Fast Performance', 'Secure & Scalable']
+    id: "1",
+    title: "Web Development",
+    description:
+      "Graphland builds lightning-fast, scalable websites with Next.js and React—designed to look stunning, convert effectively, and deliver top performance with SEO in mind.",
+    icon: <GlobeIcon className="size-8 text-primary" />,
   },
   {
-    id: '2', 
-    title: 'Mobile App Development',
-    description: 'Native and cross-platform mobile applications for iOS and Android. User-friendly interfaces with seamless functionality.',
-    icon: '📱',
-    features: ['Cross-platform', 'Native Performance', 'App Store Ready', 'Push Notifications']
+    id: "2",
+    title: "Native & Cross-Platform Mobile Apps",
+    description:
+      "We create sleek, high-performance mobile apps that work seamlessly on any device, helping your business reach users everywhere.",
+    icon: <TabletSmartphoneIcon className="size-8 text-primary" />,
   },
   {
-    id: '3',
-    title: 'Desktop Applications',
-    description: 'Powerful desktop software solutions for Windows, macOS, and Linux. Built for performance and reliability.',
-    icon: '💻',
-    features: ['Multi-platform', 'Rich UI/UX', 'Offline Support', 'System Integration']
-  }
-]
+    id: "3",
+    title: "User-Centered Design Solutions",
+    description: "Great design is more than pixelsit's how users feel.",
+    icon: <FigmaIcon className="size-8 text-primary" />,
+  },
+  {
+    id: "4",
+    title: "Scalable SaaS Solutions",
+    description:
+      "We build scalable SaaS platforms designed for growth, reliability, and seamless user experiences.",
+    icon: <LayoutPanelTopIcon className="size-8 text-primary" />,
+  },
+];
 
 export default function ServicesSection() {
   return (
-    <section className="py-32 lg:py-40 bg-neutral-950">
+    <section className="py-32 lg:py-40">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20 lg:mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-6">
-            Our Services
-          </h2>
-          <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
-            We specialize in creating digital solutions that drive business growth 
-            and deliver exceptional user experiences.
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h2>
+          <p className="text-xl text-muted max-w-3xl mx-auto">
+            We specialize in creating digital solutions that drive business
+            growth and deliver exceptional user experiences.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
           {services.map((service) => (
-            <div key={service.id} className="group">
-              <div className="relative bg-neutral-900 rounded-3xl p-8 lg:p-10 h-full hover:bg-neutral-800 hover:shadow-2xl transition-all duration-300 border border-neutral-800">
-                {/* Icon */}
-                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
-                </div>
+            <SpotlightCard
+              key={service.id}
+              className="group flex flex-col gap-3"
+              spotlightColor="rgba(223, 249, 74, 0.6)"
+            >
+              {/* Icon */}
+              {service.icon}
 
-                {/* Content */}
-                <h3 className="text-2xl font-bold text-neutral-100 mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-neutral-400 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+              {/* Content */}
+              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+              <p className="text-muted mb-8 leading-relaxed">
+                {service.description}
+              </p>
 
-                {/* Features */}
-                <div className="space-y-3 mb-8">
-                  {service.features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-neutral-300 rounded-full opacity-60" />
-                      <span className="text-neutral-300 text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* CTA Button */}
-                <button className="w-full bg-white text-neutral-900 py-4 rounded-full font-medium hover:bg-neutral-200 transition-colors duration-200 group-hover:shadow-lg">
-                  Learn More
-                </button>
-
-                {/* Hover accent */}
-                <div className="absolute top-6 right-6 w-8 h-8 bg-neutral-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            </div>
+              {/* CTA Button */}
+              <Link
+                href={"/"}
+                className="inline-flex items-center font-medium transition-colors duration-200 group/btn"
+              >
+                <span className="border-b-2 pb-1 mr-2 group-hover/btn:border-primary">
+                  View Details
+                </span>
+                <MoveUpRightIcon className="size-4 group-hover/btn:translate-x-1 -group-hover/btn:translate-y-1 transition-transform duration-200" />
+              </Link>
+            </SpotlightCard>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
