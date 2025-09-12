@@ -8,12 +8,13 @@ import {
   ArrowRightIcon,
 } from "lucide-react";
 import { Highlighter } from "@/components/magicui/highlighter";
-import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import { Button } from "@/components/ui/button";
 import ScheduleButton from "@/components/ScheduleButton";
 import CurvedLoop from "@/components/ui/CurvedLoop";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Spotlight } from "@/components/ui/Spotlight";
 
 interface Service {
   id: string;
@@ -42,9 +43,16 @@ const services: Service[] = [
       "Performance optimization",
       "E-commerce integration",
       "Content management systems",
-      "Progressive web apps"
+      "Progressive web apps",
     ],
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"]
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "MongoDB",
+    ],
   },
   {
     id: "2",
@@ -61,9 +69,16 @@ const services: Service[] = [
       "App Store optimization",
       "Push notifications",
       "Offline functionality",
-      "Real-time synchronization"
+      "Real-time synchronization",
     ],
-    technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "Redux"]
+    technologies: [
+      "React Native",
+      "Flutter",
+      "Swift",
+      "Kotlin",
+      "Firebase",
+      "Redux",
+    ],
   },
   {
     id: "3",
@@ -79,9 +94,16 @@ const services: Service[] = [
       "Prototyping & wireframing",
       "Design systems",
       "Brand identity design",
-      "Accessibility compliance"
+      "Accessibility compliance",
     ],
-    technologies: ["Figma", "Adobe Creative Suite", "Sketch", "Principle", "InVision", "Miro"]
+    technologies: [
+      "Figma",
+      "Adobe Creative Suite",
+      "Sketch",
+      "Principle",
+      "InVision",
+      "Miro",
+    ],
   },
   {
     id: "4",
@@ -98,9 +120,16 @@ const services: Service[] = [
       "API development",
       "Database optimization",
       "Security & compliance",
-      "Analytics & reporting"
+      "Analytics & reporting",
     ],
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "Redis", "AWS", "Stripe"]
+    technologies: [
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Redis",
+      "AWS",
+      "Stripe",
+    ],
   },
 ];
 
@@ -108,29 +137,32 @@ export default function ServicesPage() {
   return (
     <div className="bg-neutral-950">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 lg:py-32">
-        <BackgroundRippleEffect />
-        
-        <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            <h1 className="text-3xl lg:text-5xl font-bold text-neutral-100 leading-relaxed">
-              Our{" "}
-              <Highlighter action="highlight" color="var(--primary)">
-                <span className="text-black">Services</span>
-              </Highlighter>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-neutral-400 max-w-4xl mx-auto leading-relaxed">
-              We specialize in creating digital solutions that drive business growth 
-              and deliver exceptional user experiences across all platforms.
-            </p>
-            
-            <div className="pt-8">
-              <ScheduleButton />
-            </div>
-          </div>
+      <div className="relative flex h-[20rem] w-full overflow-hidden rounded-md bg-black/[0.96] antialiased md:items-center md:justify-center">
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none",
+            "[background-image:linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]"
+          )}
+        />
+
+        <Spotlight
+          className="-top-40 left-0 md:-top-20 md:left-60"
+          fill="white"
+        />
+        <div className="relative z-10 mx-auto w-full max-w-7xl p-4 pt-20 md:pt-0">
+          <h1 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-7xl">
+            Our{" "}
+            <Highlighter action="highlight" color="var(--primary)">
+              <span className="text-black">Services</span>
+            </Highlighter>
+          </h1>
+          <p className="mx-auto mt-4 max-w-lg text-center text-base font-normal text-neutral-300">
+            We specialize in creating digital solutions that drive business
+            growth and deliver exceptional user experiences across web, mobile,
+            design, and SaaS platforms.
+          </p>
         </div>
-      </section>
+      </div>
 
       {/* Services Grid */}
       <section className="py-20 lg:py-32">
@@ -177,14 +209,19 @@ export default function ServicesPage() {
               What We Deliver
             </h2>
             <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
-              Every project is tailored to your specific needs, but here's what you can 
-              expect from our comprehensive service offerings.
+              Every project is tailored to your specific needs, but here&apos;s what
+              you can expect from our comprehensive service offerings.
             </p>
           </div>
 
           <div className="space-y-16">
             {services.map((service, index) => (
-              <div key={service.id} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-reverse' : ''}`}>
+              <div
+                key={service.id}
+                className={`grid lg:grid-cols-2 gap-12 items-center ${
+                  index % 2 === 1 ? "lg:grid-flow-col-reverse" : ""
+                }`}
+              >
                 {/* Content */}
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
@@ -193,13 +230,15 @@ export default function ServicesPage() {
                       {service.title}
                     </h3>
                   </div>
-                  
+
                   <p className="text-lg text-neutral-300 leading-relaxed">
                     {service.fullDescription}
                   </p>
-                  
+
                   <div className="space-y-3">
-                    <h4 className="text-lg font-semibold text-neutral-200">Key Features:</h4>
+                    <h4 className="text-lg font-semibold text-neutral-200">
+                      Key Features:
+                    </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2">
@@ -209,7 +248,7 @@ export default function ServicesPage() {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="pt-4">
                     <Link href={service.path}>
                       <Button variant="outline" className="group">
@@ -227,8 +266,13 @@ export default function ServicesPage() {
                   </h4>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {service.technologies.map((tech, idx) => (
-                      <div key={idx} className="p-3 rounded-lg bg-neutral-900/50 border border-neutral-600 text-center">
-                        <span className="text-sm text-neutral-300 font-medium">{tech}</span>
+                      <div
+                        key={idx}
+                        className="p-3 rounded-lg bg-neutral-900/50 border border-neutral-600 text-center"
+                      >
+                        <span className="text-sm text-neutral-300 font-medium">
+                          {tech}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -247,7 +291,7 @@ export default function ServicesPage() {
               Our Process
             </h2>
             <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
-              We follow a proven methodology to ensure every project delivers 
+              We follow a proven methodology to ensure every project delivers
               exceptional results on time and within budget.
             </p>
           </div>
@@ -257,9 +301,12 @@ export default function ServicesPage() {
               <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center mx-auto">
                 <span className="text-2xl font-bold text-primary">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-neutral-100">Discovery</h3>
+              <h3 className="text-xl font-semibold text-neutral-100">
+                Discovery
+              </h3>
               <p className="text-neutral-400">
-                We dive deep into understanding your business, goals, and user needs.
+                We dive deep into understanding your business, goals, and user
+                needs.
               </p>
             </div>
 
@@ -267,7 +314,9 @@ export default function ServicesPage() {
               <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center mx-auto">
                 <span className="text-2xl font-bold text-primary">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-neutral-100">Strategy</h3>
+              <h3 className="text-xl font-semibold text-neutral-100">
+                Strategy
+              </h3>
               <p className="text-neutral-400">
                 We create a comprehensive plan and roadmap for your project.
               </p>
@@ -277,9 +326,12 @@ export default function ServicesPage() {
               <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center mx-auto">
                 <span className="text-2xl font-bold text-primary">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-neutral-100">Development</h3>
+              <h3 className="text-xl font-semibold text-neutral-100">
+                Development
+              </h3>
               <p className="text-neutral-400">
-                Our team brings your vision to life with cutting-edge technology.
+                Our team brings your vision to life with cutting-edge
+                technology.
               </p>
             </div>
 
@@ -303,16 +355,14 @@ export default function ServicesPage() {
             Ready to Get Started?
           </h2>
           <p className="text-lg text-neutral-400 mb-12 max-w-2xl mx-auto">
-            Let's discuss your project and explore how our services can help 
+            Let&apos;s discuss your project and explore how our services can help
             bring your vision to life.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <ScheduleButton />
             <Button variant="secondary" asChild>
-              <Link href="/contact">
-                Get in Touch
-              </Link>
+              <Link href="/contact">Get in Touch</Link>
             </Button>
           </div>
         </div>

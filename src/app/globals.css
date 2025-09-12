@@ -44,6 +44,7 @@
 @theme inline {
   --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
     var(--delay, 0ms);
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
 
   @keyframes cell-ripple {
     0% {
@@ -178,6 +179,16 @@ body {
   }
   50% {
     transform: translateY(-10px) scale(1.1);
+  }
+}
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
   }
 }
 
