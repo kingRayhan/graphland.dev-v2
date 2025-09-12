@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { MoveUpRightIcon } from "lucide-react";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,8 +22,12 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="font-bold text-xl text-neutral-100">
-            Graphland
+          <Link
+            href="/"
+            className="font-bold text-xl text-neutral-100 flex items-center gap-2"
+          >
+            <Image src="/logo.png" width={40} height={40} alt="logo" />
+            <p>Graphland</p>
           </Link>
 
           {/* Desktop Navigation */}
