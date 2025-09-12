@@ -2,11 +2,11 @@ Home page
 -------------------
 - ✅ Hero section
 - ✅ Trusted Clients Logos
-- 🙂‍↔️ Our Services [Need Redesign]
+- ✅ Our Services
 - ✅ Our Expertise
 - ✅ Technologies We Use
 - 😭 Blog Grid Section
-- 🙂‍↔️ Testimonials [API integration]
+- ✅ Testimonials
 
 // https://frisk-nextapp.vercel.app/service
 
@@ -20,6 +20,6 @@ Contact Page
 - ✅ UI
 - Need api integration for form submission
 
-About Page
+✅ About Page
 -------------------
 - Inspiration: https://www.nyntax.com/about

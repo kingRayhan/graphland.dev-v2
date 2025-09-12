@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="color-scheme" content="dark" />
-        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="theme-color" content="#dff948" />
       </head>
       <body className="antialiased cursor-none!">
         <Navigation />
