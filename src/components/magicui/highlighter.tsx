@@ -56,12 +56,8 @@ export function Highlighter({
     if (!element) return;
 
     // Lock width to avoid any inline↔inline-block reflow during annotation
-    let originalDisplay: string | null = null;
-    let originalWidth: string | null = null;
     if (lockWidth) {
       const rect = element.getBoundingClientRect();
-      originalDisplay = element.style.display || null;
-      originalWidth = element.style.width || null;
       element.style.display = "inline-block";
       element.style.width = `${rect.width}px`;
     }
@@ -85,12 +81,6 @@ export function Highlighter({
       annotationRef.current?.remove();
       annotationRef.current = null;
       // Keep width locked by default to prevent snap after animation.
-      // If you ever want to unlock, revert styles below.
-      if (lockWidth) {
-        // Uncomment to unlock width on unmount:
-        // if (originalDisplay !== null) element.style.display = originalDisplay;
-        // if (originalWidth !== null) element.style.width = originalWidth;
-      }
     };
   }, [
     shouldShow,

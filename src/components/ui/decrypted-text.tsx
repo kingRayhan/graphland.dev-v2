@@ -22,45 +22,41 @@ const DecryptedText: React.FC<DecryptedTextProps> = ({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      decrypt();
+      let iteration = 0;
+      const maxIterations = Math.floor(duration / 50); // 50ms intervals
+
+      const interval = setInterval(() => {
+        const progress = iteration / maxIterations;
+        const decryptedLength = Math.floor(progress * text.length);
+
+        let result = '';
+
+        // Add decrypted characters
+        result += text.substring(0, decryptedLength);
+
+        // Add random characters for remaining positions
+        for (let i = decryptedLength; i < text.length; i++) {
+          if (text[i] === ' ') {
+            result += ' ';
+          } else {
+            result += characters[Math.floor(Math.random() * characters.length)];
+          }
+        }
+
+        setDisplayText(result);
+
+        iteration++;
+
+        if (iteration > maxIterations) {
+          clearInterval(interval);
+          setDisplayText(text);
+          setIsDecrypted(true);
+        }
+      }, 50);
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [text, duration, delay]);
-
-  const decrypt = () => {
-    let iteration = 0;
-    const maxIterations = Math.floor(duration / 50); // 50ms intervals
-    
-    const interval = setInterval(() => {
-      const progress = iteration / maxIterations;
-      const decryptedLength = Math.floor(progress * text.length);
-      
-      let result = '';
-      
-      // Add decrypted characters
-      result += text.substring(0, decryptedLength);
-      
-      // Add random characters for remaining positions
-      for (let i = decryptedLength; i < text.length; i++) {
-        if (text[i] === ' ') {
-          result += ' ';
-        } else {
-          result += characters[Math.floor(Math.random() * characters.length)];
-        }
-      }
-      
-      setDisplayText(result);
-      
-      iteration++;
-      
-      if (iteration > maxIterations) {
-        clearInterval(interval);
-        setDisplayText(text);
-        setIsDecrypted(true);
-      }
-    }, 50);
-  };
+  }, [text, duration, delay, characters]);
 
   return (
     <span className={`${className} ${isDecrypted ? 'decrypted' : 'decrypting'}`}>

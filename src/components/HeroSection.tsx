@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  ArrowUpFromDot,
-  CalendarRangeIcon,
-  MoveUpRightIcon,
-} from "lucide-react";
+import { MoveUpRightIcon } from "lucide-react";
 import { Highlighter } from "./magicui/highlighter";
 import { BackgroundRippleEffect } from "./ui/background-ripple-effect";
 import { Button } from "./ui/button";
