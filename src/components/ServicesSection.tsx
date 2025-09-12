@@ -11,6 +11,7 @@ import Link from "next/link";
 interface Service {
   id: string;
   title: string;
+  path: string;
   description: string;
   icon: React.ReactNode;
 }
@@ -19,6 +20,7 @@ const services: Service[] = [
   {
     id: "1",
     title: "Web Development",
+    path: "/services/web",
     description:
       "Graphland builds lightning-fast, scalable websites with Next.js and React—designed to look stunning, convert effectively, and deliver top performance with SEO in mind.",
     icon: <GlobeIcon className="size-8 text-primary" />,
@@ -26,6 +28,7 @@ const services: Service[] = [
   {
     id: "2",
     title: "Native & Cross-Platform Mobile Apps",
+    path: "/services/mobile",
     description:
       "We create sleek, high-performance mobile apps that work seamlessly on any device, helping your business reach users everywhere.",
     icon: <TabletSmartphoneIcon className="size-8 text-primary" />,
@@ -33,12 +36,14 @@ const services: Service[] = [
   {
     id: "3",
     title: "User-Centered Design Solutions",
+    path: "/services/design",
     description: "Great design is more than pixelsit's how users feel.",
     icon: <FigmaIcon className="size-8 text-primary" />,
   },
   {
     id: "4",
     title: "Scalable SaaS Solutions",
+    path: "/services/saas",
     description:
       "We build scalable SaaS platforms designed for growth, reliability, and seamless user experiences.",
     icon: <LayoutPanelTopIcon className="size-8 text-primary" />,
@@ -77,7 +82,7 @@ export default function ServicesSection() {
 
               {/* CTA Button */}
               <Link
-                href={"/"}
+                href={service.path}
                 className="inline-flex items-center font-medium transition-colors duration-200 group/btn"
               >
                 <span className="border-b-2 pb-1 mr-2 group-hover/btn:border-primary">

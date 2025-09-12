@@ -1,5 +1,4 @@
-import { CodegenConfig } from "@graphql-codegen/cli";
-
+import type { CodegenConfig } from "@graphql-codegen/cli";
 import dotenv from "dotenv";
 
 dotenv.config({
@@ -7,15 +6,11 @@ dotenv.config({
 });
 
 const config: CodegenConfig = {
-  schema:
-    `https://xhuzhvz4.api.sanity.io/v2023-08-01/graphql/production/default` as string,
+  schema: process.env.NEXT_PUBLIC_GRAPHQL_API_URL,
   documents: ["src/**/*.tsx"],
   ignoreNoDocuments: true, // for better experience with the watcher
   generates: {
-    "./src/common/graphql-models/": {
-      preset: "client",
-    },
+    "./src/graphql/": { preset: "client" },
   },
 };
-
 export default config;

@@ -13,7 +13,7 @@ const ScheduleButton = () => {
 
   return (
     <Button
-      data-cal-link="graph-land-x1ioyx"
+      data-cal-link="graphland.dev"
       data-cal-config='{"layout":"month_view"}'
     >
       <CalendarRangeIcon />
