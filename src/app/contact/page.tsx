@@ -1,5 +1,3 @@
-"use client";
-
 import {
   FacebookIcon,
   InstagramIcon,
@@ -7,70 +5,10 @@ import {
   TwitterIcon,
 } from "@/components/icons";
 import ScheduleButton from "@/components/ScheduleButton";
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import ContactForm from "@/components/ContactForm";
 import GlassIcon from "@/components/ui/GlassIcon";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  company: z.string().optional(),
-  phone: z.string().optional(),
-  budget: z.string().optional(),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
-});
 
 export default function ContactPage() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      company: "",
-      phone: "",
-      budget: "",
-      message: "",
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("Form submitted:", values);
-    // Handle form submission here
-  }
-
-  const budgetOptions = [
-    { value: "under-10k", label: "Under $10,000" },
-    { value: "10k-25k", label: "$10,000 - $25,000" },
-    { value: "25k-50k", label: "$25,000 - $50,000" },
-    { value: "50k-100k", label: "$50,000 - $100,000" },
-    { value: "over-100k", label: "Over $100,000" },
-  ];
-
   const socialLinks = [
     {
       name: "LinkedIn",
@@ -208,142 +146,7 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-10 border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Send us a message
-                </h3>
-
-                <Form {...form}>
-                  <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-6"
-                  >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-300">
-                              Name *
-                            </FormLabel>
-                            <FormControl>
-                              <Input placeholder="Your name" {...field} />
-                            </FormControl>
-                            <FormMessage className="text-red-400" />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-300">
-                              Email *
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                type="email"
-                                placeholder="your@email.com"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage className="text-red-400" />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="company"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-300">
-                              Company
-                            </FormLabel>
-                            <FormControl>
-                              <Input placeholder="Your company" {...field} />
-                            </FormControl>
-                            <FormMessage className="text-red-400" />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Phone</FormLabel>
-                            <FormControl>
-                              <Input
-                                type="tel"
-                                placeholder="Your phone"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage className="text-red-400" />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
-                    <FormField
-                      control={form.control}
-                      name="budget"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Budget Range</FormLabel>
-                          <Select
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                          >
-                            <FormControl>
-                              <SelectTrigger className="w-full">
-                                <SelectValue placeholder="Select budget range" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              {budgetOptions.map((option) => (
-                                <SelectItem
-                                  key={option.value}
-                                  value={option.value}
-                                  className="text-white hover:bg-gray-700"
-                                >
-                                  {option.label}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                          <FormMessage className="text-red-400" />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Message *</FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Tell us about your project..."
-                              rows={5}
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage className="text-red-400" />
-                        </FormItem>
-                      )}
-                    />
-
-                    <Button type="submit">Send Message</Button>
-                  </form>
-                </Form>
-              </div>
+              <ContactForm />
             </div>
           </div>
         </div>
