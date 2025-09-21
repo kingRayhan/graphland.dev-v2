@@ -252,8 +252,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
-*,
-button {
-  cursor: none !important;
-}
