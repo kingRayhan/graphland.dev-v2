@@ -1,0 +1,142 @@
+{
+  "title": "Affordable Pricing Plans",
+  "description": "Choose the plan that works best for your business. All plans include our core features with flexible payment options.",
+  "disclaimer": "* Devices are excluded from all plans",
+  "plans": [
+    {
+      "id": "monthly",
+      "name": "Monthly",
+      "description": "Pay monthly based on your tenant",
+      "billingCycle": "Every 1 month, per tenant",
+      "signUpFee": {
+        "amount": 5000,
+        "currency": "BDT",
+        "discount": null
+      },
+      "monthlyPrice": {
+        "amount": 1000,
+        "currency": "BDT",
+        "label": "starting from"
+      },
+      "savings": null,
+      "isPopular": false,
+      "features": [
+        "Unlimited stock and order tracking",
+        "On-spot POS printing",
+        "Buy-sell list",
+        "Accounting, product, route, shop management",
+        "Live tracking via GPS",
+        "Easy navigation via QR code",
+        "SMS invoice system",
+        "Unlimited inventory and ERP management",
+        "Financial accounting management",
+        "Smart graphical and business reports",
+        "24/7 customer support",
+        "Free setup and training"
+      ],
+      "buttonText": "Get Started",
+      "buttonLink": null
+    },
+    {
+      "id": "half-yearly",
+      "name": "Half-Yearly",
+      "description": "Pay every 6 months based on your tenant",
+      "billingCycle": "Every 6 months, per tenant",
+      "signUpFee": {
+        "amount": 3000,
+        "currency": "BDT",
+        "discount": {
+          "originalAmount": 6000,
+          "currency": "BDT"
+        }
+      },
+      "monthlyPrice": {
+        "amount": 1000,
+        "currency": "BDT",
+        "label": "starting from"
+      },
+      "savings": null,
+      "isPopular": false,
+      "features": [
+        "Unlimited stock and order tracking",
+        "On-spot POS printing",
+        "Buy-sell list",
+        "Accounting, product, route, shop management",
+        "Live tracking via GPS",
+        "Easy navigation via QR code",
+        "SMS invoice system",
+        "Unlimited inventory and ERP management",
+        "Financial accounting management",
+        "Smart graphical and business reports",
+        "24/7 customer support",
+        "Free setup and training"
+      ],
+      "buttonText": "Get Started",
+      "buttonLink": null
+    },
+    {
+      "id": "yearly",
+      "name": "Yearly",
+      "description": "Pay every 12 months based on your tenant",
+      "billingCycle": "Every 12 months, per tenant",
+      "signUpFee": {
+        "amount": 0,
+        "currency": "BDT",
+        "discount": null,
+        "isFree": true
+      },
+      "monthlyPrice": {
+        "amount": 1000,
+        "currency": "BDT",
+        "label": "starting from"
+      },
+      "savings": null,
+      "isPopular": true,
+      "features": [
+        "Unlimited stock and order tracking",
+        "On-spot POS printing",
+        "Buy-sell list",
+        "Accounting, product, route, shop management",
+        "Live tracking via GPS",
+        "Easy navigation via QR code",
+        "SMS invoice system",
+        "Unlimited inventory and ERP management",
+        "Financial accounting management",
+        "Smart graphical and business reports",
+        "24/7 customer support",
+        "Free setup and training"
+      ],
+      "buttonText": "Get Started",
+      "buttonLink": null
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "description": "Enterprise pricing plan based on your business needs",
+      "billingCycle": "Custom pricing tailored to your requirements",
+      "signUpFee": null,
+      "monthlyPrice": null,
+      "savings": null,
+      "isPopular": false,
+      "features": [
+        "Unlimited stock and order tracking",
+        "On-spot POS printing",
+        "Buy-sell list",
+        "Accounting, product, route, shop management",
+        "Live tracking via GPS",
+        "Easy navigation via QR code",
+        "SMS invoice system",
+        "Unlimited inventory and ERP management",
+        "Financial accounting management",
+        "Smart graphical and business reports",
+        "24/7 Enterprise Support",
+        "Free setup and training",
+        "Custom integrations",
+        "Dedicated account manager"
+      ],
+      "buttonText": "Call Enterprise Line",
+      "buttonLink": "https://wa.me/8801836980760",
+      "buttonNote": "* Pricing will be based on your business needs"
+    }
+  ]
+}

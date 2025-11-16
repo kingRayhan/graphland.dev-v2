@@ -2,9 +2,8 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { SmoothCursor } from "@/components/ui/smooth-cursor";
+import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
   title: "Graphland - Custom Solutions",
