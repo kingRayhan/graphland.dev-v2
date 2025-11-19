@@ -26,12 +26,12 @@ const privacySections: BilingualSection[] = [
     english: [
       "Contact information that you provide through forms, chat widgets, or email (name, company name, phone number, email address, and project details).",
       "Usage data such as page views, device information, IP address, and referrer URLs, collected via privacy-respecting analytics tools to help us improve performance and security.",
-      "Business credentials shared voluntarily during discovery calls or proposals so that we can verify eligibility for services like DBID registration assistance.",
+      "Business credentials shared voluntarily during discovery calls or proposals so that we can verify eligibility for specialized or compliance-focused services.",
     ],
     bangla: [
       "ফর্ম, চ্যাট বা ইমেইলের মাধ্যমে আপনি যে তথ্য দেন (নাম, কোম্পানির নাম, ফোন নম্বর, ইমেইল, প্রকল্পের বিবরণ) আমরা সংগ্রহ করি।",
       "আমাদের ওয়েবসাইটের ব্যবহার সংক্রান্ত তথ্য যেমন পেজ ভিউ, ডিভাইসের ধরন, IP ঠিকানা এবং রেফারার URL — পারফরম্যান্স ও সিকিউরিটি উন্নত করার জন্য বিশ্লেষণমূলক টুলের মাধ্যমে সংগ্রহ করা হয়।",
-      "DBID রেজিস্ট্রেশনসহ অন্যান্য সেবার জন্য আপনার যোগ্যতা যাচাই করতে আপনি যে ব্যবসায়িক তথ্য স্বেচ্ছায় শেয়ার করেন, সেগুলোও আমরা সংগ্রহ করি।",
+      "বিশেষায়িত বা কমপ্লায়েন্স সম্পর্কিত সেবার জন্য আপনার যোগ্যতা যাচাই করতে আপনি যে ব্যবসায়িক তথ্য স্বেচ্ছায় শেয়ার করেন, সেগুলোও আমরা সংগ্রহ করি।",
     ],
   },
   {
@@ -303,8 +303,8 @@ export default function LegalPage() {
               Engagement rules for clients, prospects, and partners
             </h2>
             <p className="text-neutral-400">
-              Review these Terms before engaging us for DBID registration help,
-              software projects, retainers, or any advisory work.
+              Review these Terms before engaging us for custom software
+              projects, retainers, or any advisory work.
             </p>
           </div>
 
