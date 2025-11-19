@@ -59,6 +59,12 @@ export default function Footer() {
               >
                 About
               </Link>
+              <Link
+                href="/legal"
+                className="text-neutral-400 hover:text-neutral-100 text-sm transition-colors duration-200"
+              >
+                Privacy & Terms
+              </Link>
             </div>
 
             <div className="flex items-center space-x-4">
