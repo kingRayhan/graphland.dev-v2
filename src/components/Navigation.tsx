@@ -1,10 +1,10 @@
 "use client";
 
+import { MoveUpRightIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { MoveUpRightIcon } from "lucide-react";
-import Image from "next/image";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,6 @@ export default function Navigation() {
     // { name: "Products", href: "/products" },
     // { name: "Projects", href: "/projects" },
     { name: "About", href: "/about" },
-    { name: "Legal", href: "/legal" },
     // { name: "About", href: "/about" },
   ];
 

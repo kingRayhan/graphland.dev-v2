@@ -1,3 +1,4 @@
+import ContactForm from "@/components/ContactForm";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -5,7 +6,6 @@ import {
   TwitterIcon,
 } from "@/components/icons";
 import ScheduleButton from "@/components/ScheduleButton";
-import ContactForm from "@/components/ContactForm";
 import GlassIcon from "@/components/ui/GlassIcon";
 
 export default function ContactPage() {
@@ -95,9 +95,10 @@ export default function ContactPage() {
                     <p className="text-gray-300 mb-1">
                       Prefer doing things in person?
                     </p>
-                    <p className="text-gray-400 text-sm">
-                      Bangladesh <br />
-                      Uttara, Sector 11, Road 10, House 4. Dhaka - 1230
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      House 4, Road 10, Sector 11, Uttara (1230)
+                      <br />
+                      Dhaka, Bangladesh
                     </p>
                   </div>
                 </div>
