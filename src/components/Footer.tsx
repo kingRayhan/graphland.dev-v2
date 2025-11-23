@@ -78,10 +78,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-neutral-800 text-center flex justify-between items-center">
-          <p className="text-neutral-500 text-xs">
-            © {new Date().getFullYear()} Graphland. All rights reserved.
-          </p>
+        <div className="mt-8 pt-8 border-t border-neutral-800 text-center flex flex-col md:flex-row justify-between items-center gap-3">
+          <div className="flex flex-col items-center md:items-start gap-1">
+            <p className="text-neutral-500 text-xs">
+              © {new Date().getFullYear()} Graphland. All rights reserved.
+            </p>
+            <p className="text-neutral-500 text-xs">
+              Trade License: TRAD/DNCC/027891/2025
+            </p>
+          </div>
 
           <div id="social-links">
             <div className="flex flex-wrap gap-3">
