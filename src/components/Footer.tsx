@@ -84,7 +84,15 @@ export default function Footer() {
               © {new Date().getFullYear()} Graphland. All rights reserved.
             </p>
             <p className="text-neutral-500 text-xs">
-              Trade License: TRAD/DNCC/027891/2025
+              Trade License:{" "}
+              <a
+                href="/legal-papers/trade-license.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className=" hover:underline"
+              >
+                TRAD/DNCC/027891/2025
+              </a>
             </p>
           </div>
 
