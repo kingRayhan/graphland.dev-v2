@@ -89,7 +89,7 @@ export default function Footer() {
                 href="/legal-papers/trade-license.pdf"
                 target="_blank"
                 rel="noreferrer"
-                className=" hover:underline"
+                className="hover:underline"
               >
                 TRAD/DNCC/027891/2025
               </a>

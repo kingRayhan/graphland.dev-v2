@@ -1,3 +1,4 @@
+import ClientsSection from "@/components/ClientsSection";
 import CompanyLogosSection from "@/components/CompanyLogosSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import HeroSection from "@/components/HeroSection";
