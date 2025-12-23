@@ -24,15 +24,20 @@ export const gqlAPIClient = async <T>(payload: {
     throw new Error("Failed to fetch data");
   }
 
-  const { data, errors } = await apiResponse.json();
+  const response = (await apiResponse.json()) as {
+    data?: T;
+    errors?: Array<{ message?: string }>;
+  };
+
+  const { data, errors } = response;
 
   if (errors && errors.length > 0) {
-    throw new Error(
-      errors
-        .map((e: { message?: string }) => e.message || "Unknown error")
-        .join(", ")
-    );
+    throw new Error(errors.map((e) => e.message || "Unknown error").join(", "));
   }
 
-  return data as T;
+  if (!data) {
+    throw new Error("No data returned from API");
+  }
+
+  return data;
 };
